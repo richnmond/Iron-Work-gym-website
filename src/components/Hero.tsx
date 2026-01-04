@@ -14,7 +14,7 @@ export default function Hero() {
         <p className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto">
           State-of-the-art equipment, expert trainers, and a community that pushes you to your limits.
         </p>
-        
+      
         <div className="flex flex-col md:flex-row gap-6 justify-center">
           <button className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-lg text-lg font-bold transition-all transform hover:scale-105">
             START FREE TRIAL

@@ -14,7 +14,7 @@ export default function AboutPage() {
             <p className="text-lg text-gray-700 mb-6">
               Founded in 2010, IronWorks started as a small garage gym with one mission: 
               to make premium fitness accessible to everyone.
-            </p>
+            </p> 
             <p className="text-lg text-gray-700 mb-6">
               Today, we're a 25,000 sq. ft. facility serving over 2,500 members with 
               state-of-the-art equipment, expert trainers, and a supportive community.
@@ -41,7 +41,7 @@ export default function AboutPage() {
                 </div>
                 <span className="font-medium">24/7 access for maximum flexibility</span>
               </li>
-            </ul>
+            </ul> 
           </div>
         </div>
 

@@ -4,9 +4,11 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Classes', href: '/classes' },
+    { name: 'Daily Routine', href: '/daily-routine' },
     { name: 'Pricing', href: '/pricing' },
     { name: 'Trainers', href: '/about#trainers' },
     { name: 'Contact', href: '/contact' },
+    { name: 'About', href: '/about' },
   ]
   return (
     <nav className="fixed w-full bg-black/90 text-white z-50 px-6 py-4">
