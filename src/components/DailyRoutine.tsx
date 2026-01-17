@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
 
 export default function DailyRoutine() {
   return (
@@ -35,6 +36,15 @@ export default function DailyRoutine() {
         <article className="p-6 rounded-xl shadow-md bg-white/80 dark:bg-black/60">
           <h2 className="text-2xl font-semibold">Nutrition</h2>
           <p className="mt-2 text-gray-600 dark:text-gray-300">Fuel strategically to support performance and recovery throughout the day.</p>
+          <div className="relative h-48 w-full mt-4 mb-4 rounded-lg overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop"
+              alt="Healthy nutrition and balanced meals"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
           <ul className="mt-4 space-y-2 list-disc list-inside text-gray-700 dark:text-gray-200">
             <li>Protein-focused breakfast</li>
             <li>Balanced lunch with vegetables and whole grains</li>

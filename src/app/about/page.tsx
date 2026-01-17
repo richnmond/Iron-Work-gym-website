@@ -1,8 +1,12 @@
+'use client';
+
+import Image from 'next/image';
+
 export default function AboutPage() {
   const trainers = [
-    { name: 'Alex Johnson', specialty: 'Strength & Conditioning', experience: '10 years', bio: 'Former professional athlete', src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48" },
-    { name: 'Sarah Lee', specialty: 'Yoga & Mobility', experience: '8 years', bio: 'Certified yoga instructor', src: 'https://images.unsplash.com/to-1526506118085-60ce8714f8c5?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
-    { name: 'Mike Chen', specialty: 'HIIT & Weight Loss', experience: '12 years', bio: 'Nutrition specialist', src: 'https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+    { name: 'Alex Johnson', specialty: 'Strength & Conditioning', experience: '10 years', bio: 'Former professional athlete', src: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop" },
+    { name: 'Sarah Lee', specialty: 'Yoga & Mobility', experience: '8 years', bio: 'Certified yoga instructor', src: 'https://images.unsplash.com/photo-1517836357463-d25ddfcbf042?w=400&h=400&fit=crop' },
+    { name: 'Mike Chen', specialty: 'HIIT & Weight Loss', experience: '12 years', bio: 'Nutrition specialist', src: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop' },
   ] 
 
   return (
@@ -46,11 +50,29 @@ export default function AboutPage() {
         </div>
 
         <div className="mt-20">
-          <h2 className="text-4xl font-bold mb-12 text-center">MEET OUR TRAINERS</h2>
+          <h2 
+            className="text-4xl font-bold mb-12 text-center"
+            data-aos="fade-up"
+          >
+            MEET OUR TRAINERS
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trainers.map((trainer, index) => (
-              <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div className="h-48 bg-gray-300"></div>
+              <div 
+                key={index} 
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
+              >
+                <div className="relative h-48 w-full overflow-hidden">
+                  <Image
+                    src={trainer.src}
+                    alt={trainer.name}
+                    fill
+                    className="object-cover transition-transform duration-300 hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold mb-2">{trainer.name}</h3>
                   <p className="text-red-600 font-medium mb-2">{trainer.specialty}</p>

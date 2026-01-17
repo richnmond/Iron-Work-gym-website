@@ -7,34 +7,49 @@ export default function Hero() {
       ></div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+        <h1 
+          className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+          data-aos="fade-up"
+        >
           BUILD YOUR <span className="text-red-600">BEST</span> SELF
         </h1>
         
-        <p className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto">
+        <p 
+          className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           State-of-the-art equipment, expert trainers, and a community that pushes you to your limits.
         </p>
       
-        <div className="flex flex-col md:flex-row gap-6 justify-center">
-          <button className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-lg text-lg font-bold transition-all transform hover:scale-105">
+        <div 
+          className="flex flex-col md:flex-row gap-6 justify-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <button className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-lg text-lg font-bold cta-btn">
             START FREE TRIAL
           </button>
-          <button className="border-2 border-white hover:bg-white hover:text-black px-10 py-4 rounded-lg text-lg font-bold transition-all">
+          <button className="border-2 border-white hover:bg-white hover:text-black px-10 py-4 rounded-lg text-lg font-bold btn-hover">
             VIEW CLASSES
           </button>
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
-          <div className="text-center">
+        <div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div className="text-center hover-lift rounded-lg p-4">
             <div className="text-5xl font-bold text-red-600">50+</div>
             <div className="text-gray-400">Modern Equipment</div>
           </div>
-          <div className="text-center">
+          <div className="text-center hover-lift rounded-lg p-4">
             <div className="text-5xl font-bold text-red-600">15+</div>
             <div className="text-gray-400">Expert Trainers</div>
           </div>
-          <div className="text-center">
+          <div className="text-center hover-lift rounded-lg p-4">
             <div className="text-5xl font-bold text-red-600">24/7</div>
             <div className="text-gray-400">Open Access</div>
           </div>

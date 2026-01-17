@@ -8,16 +8,27 @@ export default function CTA() {
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+        <h2 
+          className="text-4xl md:text-5xl font-bold mb-6"
+          data-aos="fade-up"
+        >
           READY TO TRANSFORM YOUR LIFE?
         </h2>
         
-        <p className="text-xl text-gray-300 mb-10">
+        <p 
+          className="text-xl text-gray-300 mb-10"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           Start your fitness journey today with our 7-day free trial. No commitment required.
         </p>
 
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-          <button className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-lg text-lg font-bold transition-all transform hover:scale-105 shadow-xl">
+        <div 
+          className="flex flex-col md:flex-row gap-6 justify-center items-center"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <button className="bg-red-600 hover:bg-red-700 px-10 py-4 rounded-lg text-lg font-bold cta-btn shadow-xl">
             CLAIM FREE TRIAL
           </button>
           
@@ -27,18 +38,22 @@ export default function CTA() {
           </div>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-gray-800">
-          <div className="flex flex-col items-center">
+        <div 
+          className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 pt-12 border-t border-gray-800"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div className="flex flex-col items-center hover-lift rounded-lg p-4">
             <div className="text-3xl mb-4">🏆</div>
             <h4 className="font-bold text-lg mb-2">Award Winning</h4>
             <p className="text-gray-400 text-sm">Best Gym 2023 City Award</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover-lift rounded-lg p-4">
             <div className="text-3xl mb-4">👨‍👩‍👧‍👦</div>
             <h4 className="font-bold text-lg mb-2">Family Friendly</h4>
             <p className="text-gray-400 text-sm">Kids area & family discounts</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center hover-lift rounded-lg p-4">
             <div className="text-3xl mb-4">🛡️</div>
             <h4 className="font-bold text-lg mb-2">Safe & Clean</h4>
             <p className="text-gray-400 text-sm">24/7 security & daily sanitization</p>

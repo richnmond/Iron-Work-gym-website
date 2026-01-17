@@ -50,7 +50,10 @@ export default function MembershipPlans() {
   return (
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div 
+          className="text-center mb-16"
+          data-aos="fade-up"
+        >
           <h2 className="text-4xl font-bold mb-4 text-gray-900">CHOOSE YOUR PLAN</h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
             Flexible membership options designed for every fitness level. No long-term contracts.
@@ -61,7 +64,9 @@ export default function MembershipPlans() {
           {plans.map((plan, index) => (
             <div 
               key={index}
-              className={`relative rounded-2xl p-8 border-2 ${
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className={`relative rounded-2xl p-8 border-2 hover-lift transition-all duration-300 ${
                 plan.popular 
                   ? 'border-red-600 shadow-2xl transform scale-105' 
                   : 'border-gray-200'
@@ -92,7 +97,7 @@ export default function MembershipPlans() {
                 ))}
               </ul>
 
-              <button className={`w-full py-4 rounded-lg font-bold transition-all ${
+              <button className={`w-full py-4 rounded-lg font-bold cta-btn ${
                 plan.popular
                   ? 'bg-red-600 hover:bg-red-700 text-white'
                   : 'bg-gray-900 hover:bg-black text-white'

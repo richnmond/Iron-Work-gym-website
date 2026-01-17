@@ -19,8 +19,121 @@
   }
 }
 
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Subtle animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Hover effects for cards */
+.hover-lift {
+  @apply transition-all duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  @apply transform -translate-y-2 shadow-2xl;
+}
+
+/* Hover effect for buttons */
+.btn-hover {
+  @apply transition-all duration-300 ease-out;
+}
+
+.btn-hover:hover {
+  @apply transform scale-105 shadow-lg;
+}
+
+/* CTA button hover */
+.cta-btn {
+  @apply transition-all duration-300 ease-out cursor-pointer;
+}
+
+.cta-btn:hover {
+  @apply transform scale-105 shadow-xl;
+}
+
+/* Animate on scroll utilities */
+.aos-animate {
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.fade-in-up {
+  animation-name: fadeInUp;
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+.slide-in-left {
+  animation-name: slideInLeft;
+}
+
+.slide-in-right {
+  animation-name: slideInRight;
+}
+
+.scale-up {
+  animation-name: scaleUp;
+}
+
