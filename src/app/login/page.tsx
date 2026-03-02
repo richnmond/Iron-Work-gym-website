@@ -5,6 +5,56 @@ import Link from 'next/link'
 
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true)
+  const [loginData, setLoginData] = useState({ email: '', password: '', rememberMe: false })
+  const [signupData, setSignupData] = useState({ 
+    firstName: '', 
+    lastName: '', 
+    email: '', 
+    phone: '', 
+    password: '', 
+    confirmPassword: '',
+    plan: 'basic',
+    agreeTerms: false
+  })
+
+  const handleLoginChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value, type, checked } = e.target
+    setLoginData(prev => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value
+    }))
+  }
+
+  const handleSignupChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target
+    if (type === 'checkbox') {
+      setSignupData(prev => ({
+        ...prev,
+        [name]: (e.target as HTMLInputElement).checked
+      }))
+    } else {
+      setSignupData(prev => ({
+        ...prev,
+        [name]: value
+      }))
+    }
+  }
+
+  const handleLoginSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    console.log('Login:', loginData)
+    // Add your login logic here
+  }
+
+  const handleSignupSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (signupData.password !== signupData.confirmPassword) {
+      alert('Passwords do not match')
+      return
+    }
+    console.log('Signup:', signupData)
+    // Add your signup logic here
+  }
 
   return (
     <div className="min-h-screen pt-24 pb-20 bg-gray-50">
@@ -34,13 +84,17 @@ export default function LoginPage() {
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold mb-8 text-center">Welcome Back!</h2>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleLoginSubmit}>
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">Email</label>
                 <input 
                   type="email" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500"
+                  name="email"
+                  value={loginData.email}
+                  onChange={handleLoginChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="member@example.com"
+                  required
                 />
               </div>
 
@@ -48,17 +102,27 @@ export default function LoginPage() {
                 <label className="block text-gray-700 mb-2 font-medium">Password</label>
                 <input 
                   type="password" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500"
+                  name="password"
+                  value={loginData.password}
+                  onChange={handleLoginChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
                   placeholder="••••••••"
+                  required
                 />
               </div>
 
               <div className="flex justify-between items-center">
                 <label className="flex items-center">
-                  <input type="checkbox" className="mr-2" />
+                  <input 
+                    type="checkbox" 
+                    name="rememberMe"
+                    checked={loginData.rememberMe}
+                    onChange={handleLoginChange}
+                    className="mr-2" 
+                  />
                   <span className="text-gray-600">Remember me</span>
                 </label>
-                <a href="#" className="text-red-600 hover:underline">Forgot password?</a>
+                <Link href="#" className="text-red-600 hover:underline text-sm">Forgot password?</Link>
               </div>
 
               <button 
@@ -84,10 +148,10 @@ export default function LoginPage() {
             <div className="mt-8 pt-8 border-t">
               <p className="text-center text-gray-600 mb-4">Or continue with</p>
               <div className="flex gap-4">
-                <button className="flex-1 border py-3 rounded-lg flex items-center justify-center hover:bg-gray-50">
+                <button type="button" className="flex-1 border py-3 rounded-lg flex items-center justify-center hover:bg-gray-50 transition">
                   <span className="mr-2">🔵</span> Google
                 </button>
-                <button className="flex-1 border py-3 rounded-lg flex items-center justify-center hover:bg-gray-50">
+                <button type="button" className="flex-1 border py-3 rounded-lg flex items-center justify-center hover:bg-gray-50 transition">
                   <span className="mr-2">⚫</span> Apple
                 </button>
               </div>
@@ -97,32 +161,109 @@ export default function LoginPage() {
           <div className="bg-white rounded-2xl shadow-xl p-8">
             <h2 className="text-3xl font-bold mb-8 text-center">Join IronWorks</h2>
             
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleSignupSubmit}>
               <div className="grid grid-cols-2 gap-4">
-                <input type="text" placeholder="First Name" className="border p-3 rounded-lg" />
-                <input type="text" placeholder="Last Name" className="border p-3 rounded-lg" />
-              </div>
-
-              <input type="email" placeholder="Email" className="border p-3 rounded-lg w-full" />
-              <input type="tel" placeholder="Phone Number" className="border p-3 rounded-lg w-full" />
-
-              <div className="grid grid-cols-2 gap-4">
-                <input type="password" placeholder="Password" className="border p-3 rounded-lg" />
-                <input type="password" placeholder="Confirm Password" className="border p-3 rounded-lg" />
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm">First Name</label>
+                  <input 
+                    type="text" 
+                    name="firstName"
+                    value={signupData.firstName}
+                    onChange={handleSignupChange}
+                    placeholder="John" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm">Last Name</label>
+                  <input 
+                    type="text" 
+                    name="lastName"
+                    value={signupData.lastName}
+                    onChange={handleSignupChange}
+                    placeholder="Doe" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    required
+                  />
+                </div>
               </div>
 
               <div>
-                <label className="block text-gray-700 mb-2 font-medium">Membership Plan</label>
-                <select className="w-full border p-3 rounded-lg">
-                  <option>Select a plan</option>
-                  <option>Basic ($29/month)</option>
-                  <option>Pro ($59/month)</option>
-                  <option>Elite ($99/month)</option>
+                <label className="block text-gray-700 mb-2 font-medium text-sm">Email</label>
+                <input 
+                  type="email" 
+                  name="email"
+                  value={signupData.email}
+                  onChange={handleSignupChange}
+                  placeholder="john@example.com" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  required
+                />
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium text-sm">Phone Number</label>
+                <input 
+                  type="tel" 
+                  name="phone"
+                  value={signupData.phone}
+                  onChange={handleSignupChange}
+                  placeholder="(555) 123-4567" 
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm">Password</label>
+                  <input 
+                    type="password" 
+                    name="password"
+                    value={signupData.password}
+                    onChange={handleSignupChange}
+                    placeholder="••••••••" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-700 mb-2 font-medium text-sm">Confirm Password</label>
+                  <input 
+                    type="password" 
+                    name="confirmPassword"
+                    value={signupData.confirmPassword}
+                    onChange={handleSignupChange}
+                    placeholder="••••••••" 
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-gray-700 mb-2 font-medium text-sm">Membership Plan</label>
+                <select 
+                  name="plan"
+                  value={signupData.plan}
+                  onChange={handleSignupChange}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                >
+                  <option value="basic">Basic - $29/month</option>
+                  <option value="pro">Pro - $59/month</option>
+                  <option value="elite">Elite - $99/month</option>
                 </select>
               </div>
 
               <label className="flex items-start">
-                <input type="checkbox" className="mr-2 mt-1" />
+                <input 
+                  type="checkbox" 
+                  name="agreeTerms"
+                  checked={signupData.agreeTerms}
+                  onChange={handleSignupChange}
+                  className="mr-2 mt-1" 
+                  required
+                />
                 <span className="text-gray-600 text-sm">
                   I agree to the Terms of Service and Privacy Policy
                 </span>

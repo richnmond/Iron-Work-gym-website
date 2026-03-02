@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Classes Schedule - IronWorks Gym',
+  description: 'Browse our comprehensive class schedule. Book your favorite fitness classes today!'
+}
+
 export default function ClassesPage() {
   const schedule = [
     { day: 'Monday', classes: [

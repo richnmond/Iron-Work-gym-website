@@ -1,6 +1,9 @@
-'use client';
-
 import Image from 'next/image';
+
+export const metadata = {
+  title: 'About Us - IronWorks Gym',
+  description: 'Learn about IronWorks Gym, our mission, values, and expert trainers.'
+}
 
 export default function AboutPage() {
   const trainers = [
@@ -58,7 +61,7 @@ export default function AboutPage() {
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {trainers.map((trainer, index) => (
-              <div 
+              <div
                 key={index} 
                 className="bg-white rounded-2xl shadow-lg overflow-hidden hover-lift"
                 data-aos="fade-up"

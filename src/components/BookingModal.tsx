@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { FaTimes, FaCalendarAlt, FaUser, FaClock } from 'react-icons/fa'
+import StripePayment from './StripePayment'
 
 interface BookingModalProps {
   isOpen: boolean
@@ -146,6 +147,19 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                 <div className="flex justify-between border-t pt-3 mt-3">
                   <span className="text-gray-600">Booking ID:</span>
                   <span className="font-bold">IRON-789012</span>
+                  // Add payment step to your BookingModal
+                  {step === 3 && (
+                    <div className="p-6">
+                      <h3 className="text-xl font-bold mb-6">Payment</h3>
+                      <StripePayment 
+                        amount={29.99} 
+                        onSuccess={() => {
+                          // Handle successful payment
+                          setStep(4)
+                        }}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

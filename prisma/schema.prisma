@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // or "mysql" or "sqlite"
+  url      = env("localhost:27017/Iron-Works")
+}
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  password      String?
+  emailVerified DateTime?
+  image         String?
+  role          String    @default("member") // member, trainer, admin
+  membershipId  String?
+  membership    Membership? @relation(fields: [membershipId], references: [id])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Membership {
+  id          String   @id @default(cuid())
+  plan        String   // basic, pro, elite
+  status      String   // active, cancelled, paused
+  startDate   DateTime
+  endDate     DateTime?
+  renewDate   DateTime
+  userId      String   @unique
+  user        User     @relation(fields: [userId], references: [id])
+  bookings    Booking[]
+  createdAt   DateTime @default(now())
+}
+
+model Booking {
+  id        String   @id @default(cuid())
+  classId   String
+  className String
+  date      DateTime
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  status    String   // booked, attended, cancelled
+  createdAt DateTime @default(now())
+}

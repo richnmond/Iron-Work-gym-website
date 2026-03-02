@@ -39,7 +39,7 @@ export default function DailyRoutine() {
           <div className="relative h-48 w-full mt-4 mb-4 rounded-lg overflow-hidden">
             <Image
               src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600&h=400&fit=crop"
-              alt="Healthy nutrition and balanced meals"
+              alt="Healthy Nutrition and Balanced meals"
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
