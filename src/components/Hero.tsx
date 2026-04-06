@@ -12,7 +12,7 @@ export default function Hero() {
           data-aos="fade-up"
         >
           BUILD YOUR <span className="text-red-600">BEST</span> SELF
-        </h1>GSW
+        </h1>
         
         <p 
           className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto"

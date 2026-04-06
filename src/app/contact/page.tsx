@@ -159,7 +159,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-bold text-lg">Phone</h3>
-                    <p className="text-gray-600">(555) 123-4567</p>
+                    <p className="text-gray-600">(+23) 705-9831-1230</p>
                     <p className="text-gray-600">24/7 Support</p>
                   </div>
                 </div>
